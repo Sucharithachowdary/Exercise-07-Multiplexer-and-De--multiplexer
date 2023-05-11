@@ -47,19 +47,50 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
+~~~
+Step1:
+Start the module using module projname().
 
+Step2:
+Declare the inputs and outputs along with the select lines according to the multiplexer and demultiplexer.
 
+Step3:
+Use wire to assign intermediate outputs.
+
+Step4:
+Use and,or and not gates to get the desired output.
+
+Step5:
+End the module.
+
+Step6:
+Generate RTL realization and timing diagrams.
+~~~
 
 ### PROGRAM 
-/*
+~~~
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: sucharitha.k
+RegisterNumber:  212221240021
 
+~~~
 
-
+### 4X1 MULTIPLEXER:
+~~~
+module mux(I0,I1,I2,I3,S0,S1,Y);
+input I0,I1,I2,I3,S0,S1;
+output Y;
+wire S0C,S1C;
+not(S0C,S0);
+not(S1C,S1);
+wire P,Q,R,S;
+and(P,S0C,S1C,I0);
+and(Q,S0C,S1,I1);
+and(R,S0,S1C,I2);
+and(S,S0,S1,I3);
+or(Y,P,Q,R,S);
+endmodule
+~~~
 
 
 
@@ -67,22 +98,54 @@ RegisterNumber:
 
 
 
+<img width="497" alt="h" src="https://github.com/Sucharithachowdary/Exercise-07-Multiplexer-and-De--multiplexer/assets/94166007/e2414e9c-c022-4589-909e-a0a1426e1f18">
 
 
 
 
 
 ### TIMING DIGRAMS  
+<img width="496" alt="h1" src="https://github.com/Sucharithachowdary/Exercise-07-Multiplexer-and-De--multiplexer/assets/94166007/12904e63-c694-4720-9eb6-9ec20d0bf9ee">
 
 
 
+<img width="500" alt="h2" src="https://github.com/Sucharithachowdary/Exercise-07-Multiplexer-and-De--multiplexer/assets/94166007/62173767-ffbd-457a-8ba5-06d652b70d64">
 
+<img width="498" alt="h3" src="https://github.com/Sucharithachowdary/Exercise-07-Multiplexer-and-De--multiplexer/assets/94166007/88d0e1c5-7284-4165-9cdb-f475f4bc7ea7">
+
+<img width="497" alt="h4" src="https://github.com/Sucharithachowdary/Exercise-07-Multiplexer-and-De--multiplexer/assets/94166007/6c82fe2d-acc7-4585-94e0-47cdd8b92e8b">
 
 ### TRUTH TABLE 
+<img width="488" alt="h5" src="https://github.com/Sucharithachowdary/Exercise-07-Multiplexer-and-De--multiplexer/assets/94166007/d599adfd-8263-478c-9213-691033ec5ae7">
+
+
+### 1X4 DEMULTIPLEXER:
+### PROGRAM:
+~~~
+module demux(I,S0,S1,Y0,Y1,Y2,Y3);
+input I,S0,S1;
+output Y0,Y1,Y2,Y3;
+wire S0C,S1C;
+not(S0C,S0);
+not(S1C,S1);
+and(Y0,I,S0C,S1C);
+and(Y1,I,S0C,S1);
+and(Y2,I,S0,S1C);
+and(Y3,I,S0,S1);
+endmodule
+~~~
+
+### RTL LOGIC
+
+<img width="389" alt="h6" src="https://github.com/Sucharithachowdary/Exercise-07-Multiplexer-and-De--multiplexer/assets/94166007/368e753d-93a9-4c90-832d-212f4fdc5962">
 
 
 
+### TIMING DIGRAMS
+<img width="486" alt="h7" src="https://github.com/Sucharithachowdary/Exercise-07-Multiplexer-and-De--multiplexer/assets/94166007/54b6251f-e1d7-4ded-a282-3bf37824fc62">
 
+### TRUTH TABLE
+<img width="479" alt="h8" src="https://github.com/Sucharithachowdary/Exercise-07-Multiplexer-and-De--multiplexer/assets/94166007/ca448821-3a5e-46ee-944b-6c453c51b1e5">
 
 
 ### RESULTS 
